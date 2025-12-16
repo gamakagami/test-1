@@ -12,6 +12,10 @@ function App() {
     <div>
       <Navbar />
       <h1>Welcome to CodePilot MERN Demo</h1>  
+      <button onClick={() => api.delete(`/users/${user.id}`)}>
+   Delete Account
+ </button>
+
     </div>
   );
 }
