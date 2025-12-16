@@ -1,12 +1,14 @@
-import { useEffect, useState } from 'react';
-import { getUser } from '../api/userApi';
+ export default function Profile() {
+   const [user, setUser] = useState(null);
+ const [loading, setLoading] = useState(true);
 
-export default function Profile() {
-  const [user, setUser] = useState(null);
+   useEffect(() => {
+  getUser('123').then(data => {
+      setUser(data);
++     setLoading(false);
++   });
+   }, []);
 
-  useEffect(() => {
-    getUser('123').then(setUser);
-  }, []);
-
-  return <div>{user ? user.name : 'Loading...'}</div>;
-}
+if (loading) return <div>Loading user...</div>;
+ return <div>{user.name}</div>;
+ }
