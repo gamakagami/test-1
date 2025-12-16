@@ -2,11 +2,6 @@ import Navbar from './components/Navbar';
 
 function App() {
 
-   const handleFavorite = async () => {
-   await api.post(`/posts/${id}/favorite`);
-   setFavorited(true);
- };
-
   return (
     <div>
       <Navbar />
